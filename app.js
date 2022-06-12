@@ -1,3 +1,5 @@
+require("./config/db-config");
+
 const express = require("express");
 
 const swaggerUi = require("swagger-ui-express"),

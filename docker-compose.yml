@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+    data-store:
+        image: mongo
+        ports:
+            - 27017:27017
+        expose:
+            - 27017
+        volumes:
+            - /home/anselme/.temp/data/nat:/data/db
+        environment:
+            - MONGO_INITDB_ROOT_USERNAME=
+            - MONGO_INITDB_ROOT_PASSWORD=
+
+    app:
+        depends_on:
+            - data-store
+        build:
+            context: .
+            dockerfile: Dockerfile

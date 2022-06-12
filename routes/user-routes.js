@@ -1,7 +1,15 @@
+const mongoose = require("mongoose");
+
+let User = mongoose.model("User");
+
 const router = require("express").Router();
 
-router.get("/", (req, res) => {
-    return res.send("Find ALl Users here");
+router.get("/", async (req, res) => {
+    console.log("trying to accesss all userrs");
+
+    let users = await User.find();
+
+    return res.send(users);
 });
 
 module.exports = router;
