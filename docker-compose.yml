@@ -16,6 +16,10 @@ services:
     app:
         depends_on:
             - data-store
+        ports:
+            - 8000:8000
+        expose:
+            - 8000
         build:
             context: .
             dockerfile: Dockerfile
