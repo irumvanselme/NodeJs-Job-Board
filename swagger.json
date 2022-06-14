@@ -7,6 +7,11 @@
         "license": {
             "name": "Okavaa",
             "url": "https://okavaa.com"
+        },
+        "contact": {
+            "name": "IRUMVA HABUMUGISHA Anselme",
+            "email": "andesanselme@gmail.com",
+            "url": "https://irumvanselme.is-a.dev"
         }
     },
     "host": "localhost:8000",
@@ -91,6 +96,27 @@
                         "description": "OK"
                     }
                 },
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "required": "true",
+                        "description": "The body of the request",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "title": {
+                                    "type": "string",
+                                    "required": true
+                                },
+                                "description": {
+                                    "type": "string",
+                                    "required": true
+                                }
+                            }
+                        }
+                    }
+                ],
                 "security": [
                     {
                         "Bearer": ["global"]

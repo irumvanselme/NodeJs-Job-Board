@@ -12,6 +12,8 @@ const jobsRoutes = require("./routes/jobs-routes");
 
 const app = express();
 
+app.use(express.json());
+
 app.get("/", (req, res) => {
     return res.send(formatResponse("RUNNING"));
 });

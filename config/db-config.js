@@ -7,7 +7,7 @@ mongoose
     })
     .catch((e) => {
         console.log("Failed to connect to the database");
-        process.exit(0);
+        // process.exit(0);
     });
 
 require("../models/user-model");
