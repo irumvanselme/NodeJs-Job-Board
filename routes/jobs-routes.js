@@ -1,10 +1,8 @@
-const { saveAJob } = require("../controllers/jobs-controller");
+const { saveAJob, getAllJobs } = require("../controllers/jobs-controller");
 
 const router = require("express").Router();
 
-router.get("/", (req, res) => {
-    return res.send("Find ALl Jobs here");
-});
+router.get("/", getAllJobs);
 
 router.post("/", saveAJob);
 

@@ -11,3 +11,4 @@ mongoose
     });
 
 require("../models/user-model");
+require("../models/job-model");
