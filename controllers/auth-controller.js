@@ -55,6 +55,10 @@ async function register(req, res) {
     return res.status(201).send(newUser)
 }
 
+function get_profile(req, res) {
+    return res.send("Still Under Development")
+}
+
 module.exports = {
-    login, register
+    login, register, get_profile
 }
