@@ -1,9 +1,31 @@
 const { User } = require("../models/user-model")
-const { encryptPassword } = require("../utils/authentication")
+const { encryptPassword, tokenize } = require("../utils/authentication")
 const { validate } = require("../utils/validate")
 
 async function login(req, res) {
-    return res.send("Successfully logged in")
+    let [passes, data] = validate(req.body, {
+        login: "required|string|min:3",
+        password: "required|string|min:3",
+    })
+
+
+    if (!passes) return res.status(400).send(data)
+
+    let user = await User.findOne({
+        $or: [
+            { username: data.login },
+            { email: data.login }
+        ]
+    })
+
+    if (!user) return res.status(400).send({ message: "User already exists" })
+
+    let token = tokenize(user)
+
+    return res.send({
+        user,
+        token
+    })
 }
 
 async function register(req, res) {
@@ -12,7 +34,6 @@ async function register(req, res) {
         email: "required|email",
         username: "required|string|min:3",
         password: "required|string|min:3",
-
     })
 
     if (!passes) return res.status(400).send(data)

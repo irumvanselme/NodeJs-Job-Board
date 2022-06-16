@@ -14,8 +14,7 @@ function comparePasswords(rawPassword, encryptedPassword) {
 }
 
 function tokenize(user) {
-    let token = jwt.sign({ id: user._id }, jwtSecretKey)
-    return token
+    return jwt.sign({ user: user.username }, jwtSecretKey, { expiresIn: 60 * 60 * 2 })
 }
 
 function verify(token) {
