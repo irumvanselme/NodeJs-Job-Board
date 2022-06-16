@@ -56,7 +56,7 @@ async function register(req, res) {
 }
 
 function get_profile(req, res) {
-    return res.send("Still Under Development")
+    return res.send({ profile: req.user })
 }
 
 module.exports = {
