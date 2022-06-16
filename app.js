@@ -1,6 +1,7 @@
 require("./config/db-config");
 
 const express = require("express");
+const cors = require("cors")
 
 const swaggerUi = require("swagger-ui-express"),
     swaggerDocument = require("./swagger.json");
@@ -14,6 +15,7 @@ const authRoutes = require("./routes/auth-routes");
 const app = express();
 
 app.use(express.json());
+app.use(cors())
 
 app.get("/", (req, res) => {
     return res.send(formatResponse("RUNNING"));
