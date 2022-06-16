@@ -3,8 +3,8 @@ const jwt = require("jsonwebtoken")
 
 const jwtSecretKey = "A_SecRet_Key_For_JWT"
 
-function encryptPassword(rawPassword) {
-    let salt = bcrypt.genSalt(10);
+async function encryptPassword(rawPassword) {
+    let salt = await bcrypt.genSalt(10);
 
     return bcrypt.hash(rawPassword, salt)
 }

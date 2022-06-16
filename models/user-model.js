@@ -10,11 +10,13 @@ const usersSchema = new mongoose.Schema({
     username: {
         type: String,
         require: true,
+        unique: true
     },
 
     email: {
         type: String,
         required: true,
+        unique: true
     },
 
     password: {
@@ -26,6 +28,7 @@ const usersSchema = new mongoose.Schema({
         type: String,
         required: true,
         enum: ["ADMIN", "USER"],
+        default: "USER"
     },
 
     status: {

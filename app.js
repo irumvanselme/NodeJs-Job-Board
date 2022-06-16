@@ -9,6 +9,7 @@ const { formatResponse } = require("./utils/formatter");
 
 const usersRoutes = require("./routes/user-routes");
 const jobsRoutes = require("./routes/jobs-routes");
+const authRoutes = require("./routes/auth-routes");
 
 const app = express();
 
@@ -22,7 +23,7 @@ app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.use("/api/users", usersRoutes);
 app.use("/api/jobs", jobsRoutes);
-app.use("/api/jobs", jobsRoutes);
+app.use("/api/auth", authRoutes);
 
 module.exports = {
     app,

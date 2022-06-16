@@ -7,6 +7,7 @@ function validate(data, rules) {
         return [false, valid.errors.all()];
     } else
         return [true, valid.input]
+
 }
 
 module.exports = {
