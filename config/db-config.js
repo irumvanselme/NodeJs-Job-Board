@@ -1,7 +1,8 @@
 const mongoose = require("mongoose");
 
 mongoose
-    .connect("mongodb://data-store:27017/nat-examination")
+    .connect("mongodb://localhost:27017/nat-examination")
+    // .connect("mongodb://data-store:27017/nat-examination")
     .then((res) => {
         console.log("Connected to the database");
     })
