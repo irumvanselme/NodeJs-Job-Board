@@ -22,6 +22,7 @@ app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.use("/api/users", usersRoutes);
 app.use("/api/jobs", jobsRoutes);
+app.use("/api/jobs", jobsRoutes);
 
 module.exports = {
     app,
