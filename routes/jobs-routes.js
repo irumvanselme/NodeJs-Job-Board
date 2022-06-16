@@ -1,9 +1,9 @@
-const { saveAJob, getAllJobs } = require("../controllers/jobs-controller");
+const { all, create } = require("../controllers/jobs-controller");
 
 const router = require("express").Router();
 
-router.get("/", getAllJobs);
+router.get("/", all);
 
-router.post("/", saveAJob);
+router.post("/", create);
 
 module.exports = router;

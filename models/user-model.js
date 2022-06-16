@@ -1,9 +1,31 @@
 const mongoose = require("mongoose");
 
 const usersSchema = new mongoose.Schema({
-    fullNames: {
+
+    full_names: {
         type: String,
         required: true,
+    },
+
+    username: {
+        type: String,
+        require: true,
+    },
+
+    email: {
+        type: String,
+        required: true,
+    },
+
+    password: {
+        type: String,
+        required: true,
+    },
+
+    role: {
+        type: String,
+        required: true,
+        enum: ["ADMIN", "USER"],
     },
 
     status: {
