@@ -21,9 +21,29 @@ function verify(token) {
     return jwt.verify(token, jwtSecretKey)
 }
 
+function getcookie(req) {
+
+    if (!req.headers.cookie) return {}
+
+    let cookies = {}
+    var cookie_list = req.headers.cookie.split('; ');
+    // user=someone; session=QyhYzXhkTZawIb5qSl3KKyPVN (this is my cookie i get)
+
+    cookie_list.forEach(cookie => {
+        if (cookie) {
+            let [key, value] = cookie.split('=')
+            cookies[key] = value
+        }
+    });
+
+    return cookies
+}
+
+
 module.exports = {
     verify,
     tokenize,
     encryptPassword,
-    comparePasswords
+    comparePasswords,
+    getcookie
 }
