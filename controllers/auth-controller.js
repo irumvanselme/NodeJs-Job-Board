@@ -3,6 +3,9 @@ async function login(req, res) {
 }
 
 async function register(req, res) {
+
+
+
     return res.send("Successfully registered in")
 }
 
